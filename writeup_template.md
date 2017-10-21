@@ -110,7 +110,6 @@ data.worldmap[ypix_world_obs, xpix_world_obs, 0] += 1
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 
-* perception
 The perception step pretty much follows process_image() function in the Jupyter Notebook.
 It seems that perspected naviable mapping is too large to mapping worldmap,so I decided to clip image as bellow.
 ```
@@ -126,17 +125,18 @@ I also restricted the obstacle area to only the visible range as described below
     threshed_rock = color_thresh_rock(warped_rock)
 ```
 
-* decision
-
-
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
-
-
+The original method will stop and take a turn when there is no enough navigable terrain. However, there exists some scenario where there is enough navigable terrain but the rover can't move, e.g., getting stucked by obstacles.
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
+Experimental Enviroment
+Windows10 pro and simulator configuration is bellow.
+![settings](./misc/settings.png)
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+**Future work**
+In this project I used a heuristic approach to color threshold setting and decision making process, but I think that probabilistic approach or machine learning can be applied.
+[ReinforcementLearning](https://www.udacity.com/course/reinforcement-learning--ud600)
 
-
+[LSD-SLAM](https://vision.in.tum.de/research/vslam/lsdslam?redirect=1)
 
